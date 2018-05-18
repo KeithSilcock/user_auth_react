@@ -1,14 +1,21 @@
 import React from 'react';
-import '../assets/css/app.css';
-import logo from '../assets/images/logo.svg';
+import 'materialize-css/dist/css/materialize.min.css';
+import Home from './home';
+import Nav from './nav';
+import About from './about';
+import SecretDoc from './secret_doc';
+import OperativesList from './operative_list';
+
+import {Route} from 'react-router-dom';
 
 const App = () => (
-    <div>
         <div className="app">
-            <img src={logo} className="logo rotate"/>
-            <h1>Welcome to React</h1>
+            <Nav/>
+            <Route exact path='/' component={Home}/>
+            <Route path='/about' component={About}/>
+            <Route path='/secret-docs' component={SecretDoc}/>
+            <Route path='/operatives-list' component={OperativesList}/>
         </div>
-    </div>
 );
 
 export default App;
