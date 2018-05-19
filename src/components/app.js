@@ -5,6 +5,7 @@ import Nav from './nav';
 import About from './about';
 import SecretDoc from './secret_doc';
 import OperativesList from './operative_list';
+import auth from '../hoc/auth';
 
 import {Route} from 'react-router-dom';
 
@@ -13,7 +14,7 @@ const App = () => (
             <Nav/>
             <Route exact path='/' component={Home}/>
             <Route path='/about' component={About}/>
-            <Route path='/secret-docs' component={SecretDoc}/>
+            <Route path='/secret-docs' component={auth(SecretDoc)}/>
             <Route path='/operatives-list' component={OperativesList}/>
         </div>
 );
