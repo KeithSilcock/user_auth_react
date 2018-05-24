@@ -1,18 +1,18 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import {connect} from 'react-redux';
-import {signUp} from '../actions'
+import {signIn} from '../actions'
 import {renderInput} from "../helpers";
 
-class SignUp extends React.Component{
+class SignIn extends React.Component{
     constructor(props) {
         super(props);
     }
 
-    handleSignUp(values){
+    handleSignIn(values){
         console.log('sign up info:' , values)
 
-        this.props.signUp(values);
+        this.props.signIn(values);
     }
 
     render(){
@@ -23,13 +23,11 @@ class SignUp extends React.Component{
                 <div className="col s8 offset-s2">
                     <div className="card teal lighten-5">
                         <div className="card-content">
-                            <span className="card-title">Sign Up</span>
-                            <form onSubmit={handleSubmit(this.handleSignUp.bind(this))}>
+                            <span className="card-title">Sign In</span>
+                            <form onSubmit={handleSubmit(this.handleSignIn.bind(this))}>
                                 <Field name='email' label='Email'
                                        component={renderInput}/>
                                 <Field name='password' label='Password'
-                                       component={renderInput} type='password'/>
-                                <Field name='confirmPassword' label='Confirm Password'
                                        component={renderInput} type='password'/>
                                 <div className="row center">
                                     <button className='btn teal darken-2'>Sign Up</button>
@@ -44,8 +42,8 @@ class SignUp extends React.Component{
 }
 
 function validate(values) {
-    const {email, password, confirmPassword} = values;
-    const errors={}
+    const {email, password} = values;
+    const errors={};
 
     if(!email){
         errors.email = 'Please enter your email address'
@@ -53,16 +51,13 @@ function validate(values) {
     if(!password){
         errors.password = 'Please enter a password'
     }
-    if(password !== confirmPassword){
-        errors.confirmPassword = 'Your passwords do not match';
-    }
 
     return errors;
 }
 
-SignUp=reduxForm({
-    form: 'sign-up',
+SignIn=reduxForm({
+    form: 'sign-in',
     validate: validate
-})(SignUp);
+})(SignIn);
 
-export default connect(null, {signUp})(SignUp);
+export default connect(null, {signIn})(SignIn);

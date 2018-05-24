@@ -14,6 +14,9 @@ class Nav extends React.Component {
             return (
                 <Fragment>
                     <li>
+                        <Link to='movie-quote'>Movie Quote</Link>
+                    </li>
+                    <li>
                         <Link to='/secret-docs'>Secret Docs</Link>
                     </li>
                     <li>
