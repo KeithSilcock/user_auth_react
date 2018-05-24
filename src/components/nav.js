@@ -20,24 +20,27 @@ class Nav extends React.Component {
                         <Link to='/operatives-list'>Operative List</Link>
                     </li>
                     <li>
-                        <button style={btnStyle} className='btn red darken-2'
-                                onClick={ () => changeAuth(false)}>Sign Out</button>
+                        <Link className='btn red darken-2' to='/sign-Out'>Sign Out</Link>
                     </li>
                 </Fragment>
             )
         }
         return(
-            <li>
-                <button style={btnStyle} className='btn aqualBlue darken-2'
-                        onClick={ () => changeAuth(true)}>Sign In</button>
-            </li>
+            <Fragment>
+                <li>
+                    <Link to='sign-in'>Sign In</Link>
+                </li>
+                <li>
+                    <Link className='btn aquaBlue darken-2' to='/sign-up'>Sign up</Link>
+                </li>
+            </Fragment>
         )
     }
 
     render() {
         return(
             <nav style={{padding:'0 12px'}} className='nav-wrapper grey darken-2'>
-                <Link className='brand-logo' to='/'>CIA DATA</Link>
+                <Link className='brand-logo left' to='/'>CIA DATA</Link>
                 <ul className="right">
                     <li>
                         <Link to='/'>Home</Link>

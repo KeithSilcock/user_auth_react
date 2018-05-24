@@ -6,6 +6,7 @@ import About from './about';
 import SecretDoc from './secret_doc';
 import OperativesList from './operative_list';
 import auth from '../hoc/auth';
+import SignUp from './sign_up';
 
 import {Route} from 'react-router-dom';
 
@@ -16,6 +17,7 @@ const App = () => (
             <Route path='/about' component={About}/>
             <Route path='/secret-docs' component={auth(SecretDoc)}/>
             <Route path='/operatives-list' component={OperativesList}/>
+            <Route path='/sign-up' component={SignUp}/>
         </div>
 );
 
