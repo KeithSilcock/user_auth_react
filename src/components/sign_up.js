@@ -49,7 +49,7 @@ class SignUp extends React.Component{
 
 function validate(values) {
     const {email, password, confirmPassword} = values;
-    const errors={}
+    const errors={};
 
     if(!email){
         errors.email = 'Please enter your email address'
