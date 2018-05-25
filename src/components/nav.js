@@ -1,12 +1,12 @@
 import React, {Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {changeAuth} from '../actions'
+import {signOut} from "../actions";
 
 class Nav extends React.Component {
 
     renderLinks(){
-        const {auth, changeAuth} = this.props;
+        const {auth, signOut} = this.props;
         const btnStyle={
             width:'131px',
         };
@@ -23,7 +23,7 @@ class Nav extends React.Component {
                         <Link to='/operatives-list'>Operative List</Link>
                     </li>
                     <li>
-                        <Link className='btn red darken-2' to='/sign-Out'>Sign Out</Link>
+                        <button className='btn red darken-2' onClick={signOut}>Sign Out</button>
                     </li>
                 </Fragment>
             )
@@ -64,4 +64,4 @@ function mapStatesToProps(state){
     }
 }
 
-export default connect(mapStatesToProps, {changeAuth})(Nav)
+export default connect(mapStatesToProps, {signOut})(Nav)
